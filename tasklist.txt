@@ -1,0 +1,7 @@
+# task list
+1. create python file to insert data into mongodb
+    Solution:
+2. create python file to retrive data from mongodb
+    Solution:
+3. organize data different talbes to mongo records
+    Solution: use one collectione for basic user details and another for additional data
