@@ -11,10 +11,11 @@ users = {
 
 @app.get("/user/{user_id}")
 def get_user(user_id: int):
-    LOG.info('This is an info message')
+    LOG.info(f" get user:{user_id}")
     if user_id in users:
         return users[user_id]
     else:
+        LOG.error(f" get user:{user_id} not found")
         return {"error": "User not found"}
 
 # To run the FastAPI application
