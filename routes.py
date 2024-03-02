@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-import logpkg as LOG
+from logpkg import logger as LOG
 
 app = FastAPI()
 
@@ -11,7 +11,7 @@ users = {
 
 @app.get("/user/{user_id}")
 def get_user(user_id: int):
-    #LOG.INFO('This is an info message')
+    LOG.info('This is an info message')
     if user_id in users:
         return users[user_id]
     else:

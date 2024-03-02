@@ -1,13 +1,17 @@
 import logging
+from logging.handlers import RotatingFileHandler
 
-# Configure the logging
 logging.basicConfig(
-    level=logging.DEBUG,  # Set the desired logging level
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    level=logging.DEBUG,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)d - %(message)s',
+    handlers=[
+        RotatingFileHandler('app.log', maxBytes=1000000, backupCount=5),  # Rotate after 1 MB, keep 5 backups
+        logging.StreamHandler()
+    ]
 )
 
-# Create a logger
 logger = logging.getLogger(__name__)
+
 
 # Example usage
 '''
